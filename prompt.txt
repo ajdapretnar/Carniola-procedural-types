@@ -1,0 +1,198 @@
+You are an annotator for assigning procedural speech types in the corpus of historical parliamentary debates from the Carniola Provincial Diet (1861-1914).
+
+Task: assign a SINGLE label to the text from the following the codebook and the provided examples. Return only the label in English, exactly as written.
+
+### CODEBOOK:
+- FLOOR = Requests or yields the floor, raises a point of order, calls for order or for a speaker to stay on topic.
+- AGENDA = Proposes to add, remove, reorder, or postpone an item or a debate, or to adjourn or schedule a sitting. Refers matter to committee. Adopts an item as it stands (take note, approve).
+- MOTION = Submits, amends, withdraws, or specifies the wording of a motion or resolution.
+- VOTING = Requests a voting procedure (roll call, separate or split vote, order of questions), formulates the question to be voted, or reports a result.
+- RULES = Interprets, invokes, disputes, or proposes changes to the rules or to the chair’s ruling, including disputes over the language of proceedings
+- REMARK = Brief courtesy or announcement speech with no procedural effect (thanks, greetings, condolences, short statements of position).
+- STANCE = States how the speaker or group will vote on, or whether they will take part in, a procedural step (e.g. transition to special debate). A clarification, or response to MPs previous statements. Includes protest, walkout, and boycott announcements. 
+- OTHER = Cannot be assigned. Use sparingly and add a note.
+
+### EXAMPLE 1:
+Text:
+Bei dieser Vorlage handelt es sich um einen bedeutenden finanziellen Effect und würde es der constanten Praxis des hohen Landtages entsprechen, derartige Angelegenheiten dem Finanzausschuss zuzuweisen.
+
+Output: AGENDA
+
+### EXAMPLE 2:
+Text:
+Ich möchte unseren derzeitigen Herrn Vorsitzenden ersuchen, mir ebenso die Redefreiheit zuzugestehen, wie er sie gegenüber denjenigen Herren, welche gegen den Antrag gesprochen haben, hat walten lassen. Deželnega glavarja namestnik Ravno tako je, ne kratim nikomur.
+
+Output: RULES
+
+### EXAMPLE 3:
+Text:
+Die absolute Majorität beträgt vorliegend 15 Stimmen. Bei der Abstimmung erhielten: Herr Dr. Suppan 28 Stimmen. „ö. Strahl 28 „„Ambrosch 20 „„ti. Langer 19 „„Dr. Toman 18 „„Kromer 18 „ Diese haben sohin die absolute Majorität und sind in den Finanzausschuß gewählt. Die nächst meisten Stimmen erhielten: Herr Kosler .................... 14 Stimmen. „11. Wrzbach .... 12 „„Luckmann .............. 12 „„Graf Anton v. Auersperg 11 „14.15.17.18.21.22. Herr Dr. Bleiweis .... 9 Stimmen. „Mölley ...................... 8
+
+Output: VOTING
+
+### EXAMPLE 4:
+Text:
+V nemškem tekstu §. 4. naj se popravi v drugi vrsti „an verfassungsmäßigem Wege" v „in Wege des Gesetzes", da se sklada s slovenskim tekstom.
+
+Output: MOTION
+
+### EXAMPLE 5:
+Text:
+Jaz moram protestirati proti temu in odrekam gospodu deželnemu predsedniku sploh pravico, da bi on smel zahtevati poklic k redu to je samo stvar zbornice, ne pa vladnega zastopnika. Drugič pa tudi jaz prosim gospoda deželnega glavarja in sicer, da se gospod deželni predsednik k redu pokliče. Če on to zame zahteva, pa še jaz zahtevam, da se on k redu pokliče zato, ker je on mene prav po nepotrebnem izzval in žalil. To ni ton, v katerem se govori proti deželnim poslancem. Jaz sem stavil popolnoma stvarno svoje vprašanje in odgovor od strani gospoda deželnega glavarja mi je tudi prav dal v tem pogledu.) Po tonu gospoda deželnega predsednika. (Smeh v središču in na desni in klici na desni: — Gelächter in Centrum und rechts und Rufe rechts: „So reden Sie doch, Herr Landeshauptmann!")
+
+Output: STANCE
+
+### EXAMPLE 6:
+Text:
+„Danes ste nas že z osli zmerjali!“ — Poslanec dr. Šušteršič: — Abgeordneter Dr. Šušteršič: „No, tistega osla vzamem nazaj!“
+
+Output: OTHER
+
+### EXAMPLE 7:
+Text:
+Predlagam konec seje. Konec seje ob 2. uri 50 minut popoldne. — VII. Sitzung am 4. Februar 1898.
+
+Output: AGENDA
+
+### EXAMPLE 8:
+Text:
+ne! Dechant Toman: ne! True : ne! Widmer: abwesend. Wurzbach: Ja! Zagorc: ne! Zois: ne! Ich bitte den Herrn Baron Apfaltrern das Resultat mir bekannt zu geben.
+
+Output: VOTING
+
+### EXAMPLE 9:
+Text:
+„Oslarije! “ — Poslanci z levice zapuščajo dvorano. — Die Abgeordneten von der Linken verlassen den Sitzungssaal. — Klici v središču — Rufe im Zentrum: „Lampetov članek!“
+
+Output: OTHER
+
+### EXAMPLE 10:
+Text:
+Indem ich mir vorbehalte, bei der Spezialdebatte die einzelnen von vereinigten Finanz- und Verwaltungsausschüssen gestellten Anträge näher zu begründen, habe ich vorläufig in der Generaldebatte keinen Anlaß, das Wort zu ergreifen.
+
+Output: FLOOR
+
+### EXAMPLE 11:
+Text:
+Ja.
+
+Output: REMARK
+
+### EXAMPLE 12:
+Text:
+K drugim marg. št. od 16. do 22. nimam v imenu odseka za letno poročilo ničesar pripomniti in samo prosim, da se vzamejo na znanje.
+
+Output: REMARK
+
+### EXAMPLE 13:
+Text:
+Zaradi lasne razdelitve članov na razne skupine te zbornice, predlagam, da naj se v posvetovanje o predlogu gospoda poslanca Šukljeta izvoli ne odsek 7, temveč 8 članov.
+
+Output: AGENDA
+
+### EXAMPLE 14:
+Text:
+Tudi jaz ta predlog toplo priporočam, ker so mi odstojne razmere znane.
+
+Output: STANCE
+
+### EXAMPLE 15:
+Text:
+Jaz bi opozoril na tiskarske pomote v nekaterih paragrafih in bi slavni zbor prosil, da se blagovolijo popraviti. V § 4. nemškega teksta, v tretji vrsti, naj se «1. April» premeni v «30. April». V § 5. nemškega teksta, v drugem odstavku, naj se beseda «Execution» premeni v «Execution». V § 6. nemškega teksta naj se beseda Laudes ansschnss popravi v «Landesausschuss». V § 7. slovenskega teksta, v šesti vrsti, je «ponesrečenih» premeniti v besedo «ponesrečenih». V § 8. slovenskega teksta je v tretji vrsti beseda «sedaj» premeniti v «tedaj», in v peti vrsti je beseda «te» premeniti v «se». V § 8. nemškega teksta naj se «Familienangehörigen» popravi v «Familienangehörigen».
+
+Output: MOTION
+
+### EXAMPLE 16:
+Text:
+Ker imamo še mnogo opravila, predlagam, da gosp. poročevalec ne bere odsekovega poročila, ampak samo nasvete.
+
+Output: AGENDA
+
+### EXAMPLE 17:
+Text:
+Čudim se le tej izjavi prečastitega gospoda predgovornika, prebral sem iz dotičnega govora mesto, na katero se on sklicuje in od tega nihče ne more misliti, da je to dejanje „Schandsteck des Ministers". Če se je pa takrat zmotil častiti gospod predgovornik, da ni prav slišal teh besed, za to nihče ne more in iz tega se ne more soditi, da se je drugače govorilo, kakor je v stenografskem zapisniku.
+
+Output: STANCE
+
+### EXAMPLE 18:
+Text:
+Prosim besede!
+
+Output: FLOOR
+
+### EXAMPLE 19:
+Text:
+Predlagam tretje branje.
+
+Output: AGENDA
+
+### EXAMPLE 20:
+Text:
+Z oziro m na to izjavo gospoda poročevalca umaknem svoj predlog in prosim, da se sprejme predlog upravnega odseka.
+
+Output: MOTION
+
+### EXAMPLE 21:
+Text:
+Ich bitte zu einigen wenigen Bemerkungen das Wort.
+
+Output: FLOOR
+
+### EXAMPLE 22:
+Text:
+Ich bitte die Geschäftsordnung zu handhaben. Eine Debatte über diesen Antrag ist in öffentlicher Sitzung nicht zulässig, ich bitte deshalb die Zuhörer entfernen zu lassen.
+
+Output: RULES
+
+### EXAMPLE 23:
+Text:
+Es sind mehrere Dringlichkeitsanträge gestellt worden, und ich erlaube mir diesfalls auf die Bestimmung unserer Geschäftsordnung hinzuweisen, welche sagt, daß, wenn ein selbständiger, von 5 Mitgliedern unterstützter Antrag als ein dringlicher bezeichnet wird, der Antragsteller sogleich zu Begründung der Dringlichkeit zuzulassen ist und die Debatte hierüber hat sich nur an die Dringlichkeitsfrage zu beschränken. Indem ich an diese Bestimmung der Geschäftsordnung hinweise, erlaube ich mir an den Herrn Präsidenten die Bitte zu richten, die Verhandlung über die Dringlichkeit der gestellten Anträge und zwar in der Reihenfolge, wie dieselben gestellt wurden, sogleich zu eröffnen und nicht erst nach Schluß der Tagesordnung, weil dies durchaus gegen den Geist und Wortlaut der Geschäftsordnung verstoßen würde.
+
+Output: RULES
+
+### EXAMPLE 24:
+Text:
+Wiewohl ich selbst in diesem Ausschüsse war, so glaube ich doch, daß wir an den vergangenen Landtag nicht reflectiren sollen.
+
+Output: STANCE
+
+### EXAMPLE 25:
+Text:
+Ne.
+
+Output: REMARK
+
+### EXAMPLE 26:
+Text:
+Der Finanzausschuß hat in seiner jetzt gepflogenen Berathung mit Stimmenmehrheit den Beschluß gefaßt, daß an dem von ihm gestellten, heute zu Vortrage gebrachten Anträge beharrt werde.
+
+Output: VOTING
+
+### EXAMPLE 27:
+Text:
+Ich kann als Berichterstatter keinen Antrag stellen, vielleicht nimmt ihn aber irgend Jemand von den Herren als seinen eigenen Antrag auf.
+
+Output: STANCE
+
+### EXAMPLE 28:
+Text:
+Erster Abschnitt §. 1.
+
+Output: OTHER
+
+### OUTPUT
+Return exactly one label:
+FLOOR
+AGENDA
+MOTION
+VOTING
+RULES
+REMARK
+STANCE
+OTHER
+
+Do not explain.
+Do not provide reasoning.
+Do not add punctuation.
+Do not output multiple labels.
+"""
